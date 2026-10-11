@@ -72,7 +72,7 @@ The skill is also published in the [agent-skills](https://github.com/ericc2010/a
 
 ```
 /plugin marketplace add ericc2010/agent-skills
-/plugin install guided-discovery@agent-skills
+/plugin install guided-discovery@ericc2010-skills
 ```
 
 ### Manual copy
