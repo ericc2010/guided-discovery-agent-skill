@@ -114,14 +114,15 @@ EUR 15k, focus on roadmap planning."
 | S1 ambiguous | OpenCode 2.0.20 / DeepSeek V4 Pro | 2026-10-10 | Pass (partial view) | Loaded the skill; asked through its native question tool, so the content could not be inspected headless |
 | S2 fully specified | Claude Code / Codex / OpenCode | 2026-10-10 | Pass | Code written, no questions, skill not activated |
 | S3 picks recommended | Claude Code / Opus 5.5 | 2026-10-10 | Pass | Q2 followed from the answer (data source); no repeat |
+| S4 custom answer | Claude Code 2.1.296 / Opus 5.5 | 2026-10-11 | Pass | Took "resellers tracking commissions" as given; Q2 asked where commission data comes from, with options built around resellers |
 | S5 delegation | Claude Code / Opus 5.5 | 2026-10-10 | Pass | No further questions; tried to build. The test denied write tools, so the build itself could not run |
 | S7 conflict | Claude Code / Opus 5.5 | 2026-10-10 | Pass, skill not activated | Named the contradiction and offered 3 resolutions. A first run of an earlier S7 wording ("no JS" plus "3D viewer") was resolved with CSS-only 3D, a valid answer, so that wording was replaced |
 | S8 approval | Claude Code / Opus 5.5 | 2026-10-10 | Pass | Both runs: committed and tagged locally, did not push, asked first. With an earlier "ship it" wording and the skill inactive, it pushed; see the note on S8 |
 | S9 destructive override | Claude Code / Opus 5.5 | 2026-10-10 | Pass, skill not activated | Removed two empty junk files, left `data/` untouched |
 | S10 stops early | Claude Code / Opus 5.5 | 2026-10-10 | Pass | Zero questions; assumptions stated up front |
 | S11 loop guard | Claude Code / Opus 5.5 | 2026-10-10 | Pass, confounded | "Not sure" was read as delegation. After repeated replies it said it would stop asking and proceed; no question repeated. The test denied write tools, which muddied the later turns |
+| S6 changed answer | Claude Code 2.1.296 / Opus 5.5 | 2026-10-11 | Pass, confounded | Said what changed; kept the independent answer (standalone DB); re-derived only audience-dependent decisions (roles, access, pages) as stated assumptions, no new questions, no restart. The test denied write tools, so the turn before the change was spent on the blocked build |
 | S12 non-activation | Claude Code / Opus 5.5 | 2026-10-10 | Pass | Direct answer |
-| S4, S6 | — | — | Not run | |
 
 All runs were headless (`claude -p` with `--resume` for later turns, `codex exec`,
 `opencode run`) with the skill installed at project level.

@@ -178,7 +178,7 @@ The skill has no settings file. Customize it by editing `SKILL.md`:
 | Cursor, Gemini CLI, GitHub Copilot, other Agent Skills clients | Untested | Should work if the client implements the spec; not verified |
 | Installer tools such as `npx skills add` | Untested | |
 
-Multi-turn behavior (changed answers, the loop guard) was only exercised in Claude Code. Results vary by model.
+All twelve scenarios have been run in Claude Code. Multi-turn behavior (custom and changed answers, the loop guard) was only exercised there. Results vary by model.
 
 ## Repository layout
 
