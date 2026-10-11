@@ -66,17 +66,24 @@ Both questions are real Claude Code output from one test session (Claude Code 2.
 
 ## Installation
 
-The skill is one folder, `skills/guided-discovery/`. Install it by copying that folder into a directory your agent scans.
+### Claude Code plugin marketplace
 
-While this repository is private, clone it with the GitHub CLI:
+The skill is also published in the [agent-skills](https://github.com/ericc2010/agent-skills) library:
 
-```bash
-gh repo clone ericc2010/guided-discovery-agent-skill /tmp/guided-discovery-agent-skill
+```
+/plugin marketplace add ericc2010/agent-skills
+/plugin install guided-discovery@agent-skills
 ```
 
-(Once it is public, `git clone https://github.com/ericc2010/guided-discovery-agent-skill.git /tmp/guided-discovery-agent-skill` also works.)
+### Manual copy
 
-### Claude Code
+The skill is one folder, `skills/guided-discovery/`. Install it by copying that folder into a directory your agent scans:
+
+```bash
+git clone https://github.com/ericc2010/guided-discovery-agent-skill.git /tmp/guided-discovery-agent-skill
+```
+
+#### Claude Code
 
 ```bash
 # For you, in every project
@@ -88,7 +95,7 @@ mkdir -p .claude/skills
 cp -R /tmp/guided-discovery-agent-skill/skills/guided-discovery .claude/skills/
 ```
 
-### Codex
+#### Codex
 
 ```bash
 # For you
@@ -102,7 +109,7 @@ cp -R /tmp/guided-discovery-agent-skill/skills/guided-discovery .agents/skills/
 
 Restart Codex if the skill does not appear in `/skills`.
 
-### OpenCode
+#### OpenCode
 
 OpenCode reads its own skills folder, and also `~/.claude/skills` and `~/.agents/skills`. If you already installed the skill for Claude Code or Codex, OpenCode will find it. Otherwise:
 
@@ -176,7 +183,7 @@ The skill has no settings file. Customize it by editing `SKILL.md`:
 | Claude Code interactive, with native question UI | Untested | |
 | User-level install folders (`~/.claude/skills`, `~/.agents/skills`, `~/.config/opencode/skills`) | Untested | Paths are from each agent's documentation. Testing used project-level folders. |
 | Cursor, Gemini CLI, GitHub Copilot, other Agent Skills clients | Untested | Should work if the client implements the spec; not verified |
-| Installer tools such as `npx skills add` | Untested | |
+| Installer tools such as `npx skills add`, the Claude Code plugin marketplace | Untested | |
 
 All twelve scenarios have been run in Claude Code. Multi-turn behavior (custom and changed answers, the loop guard) was only exercised there. Results vary by model.
 
